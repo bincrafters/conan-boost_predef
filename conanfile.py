@@ -5,7 +5,7 @@ class BoostPredefConan(ConanFile):
     version = "1.64.0"
     generators = "txt"
     url = "https://github.com/boostorg/predef"
-    description = "For a description of this library, please visit http://boost.org/predef "
+    description = "Please visit http://www.boost.org/doc/libs/1_64_0/libs/libraries.htm"
     license = "www.boost.org/users/license.html"
     lib_short_name = "predef"
 
@@ -14,11 +14,8 @@ class BoostPredefConan(ConanFile):
                  .format(self.version, self.url))
 
     def package(self):
-        include_dir = src=os.path.join(os.getcwd(), self.lib_short_name, "include")
-        self.copy(pattern="*.h", dst="", src=include_dir)
-        self.copy(pattern="*.hpp", dst="", src=include_dir)
-        self.copy(pattern="*.ipp", dst="", src=include_dir)
-        
-    def package_info(self):
-        self.cpp_info.libs = [self.lib_short_name]
+        include_dir = os.path.join(self.build_folder, self.lib_short_name, "include")
+        self.copy(pattern="*", dst="", src=include_dir)
 
+    def package_id(self):
+        self.info.header_only()
