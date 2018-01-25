@@ -8,7 +8,8 @@ class BoostPredefConan(ConanFile):
     name = "boost_predef"
     version = "1.66.0"
     url = "https://github.com/bincrafters/conan-boost_predef"
-
+    author = "Bincrafters <bincrafters@gmail.com>"
+    exports = ["LICENSE.md"]
     lib_short_names = ["predef"]
     is_header_only = True
 
